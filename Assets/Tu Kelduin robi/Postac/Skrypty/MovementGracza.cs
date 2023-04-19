@@ -6,7 +6,13 @@ using UnityEngine;
 public class MovementGracza : MonoBehaviour
 {
     Rigidbody2D rgbd2d;
-    Vector3 movementVector;
+    [HideInInspector]
+    public Vector3 movementVector;
+    [HideInInspector]
+    public float lastHorizontalVector;
+    [HideInInspector]
+    public float lastVerticalVector;
+
     [SerializeField] float speed = 3f;
     Animacja animate;
 
@@ -21,6 +27,16 @@ public class MovementGracza : MonoBehaviour
     {
         movementVector.x = Input.GetAxisRaw("Horizontal"); //chodzi gora dol
         movementVector.y = Input.GetAxisRaw("Vertical"); //chodzi lewo prawo
+
+        if(movementVector.x != 0)
+        {
+            lastHorizontalVector = movementVector.x;
+        }
+        if(movementVector.y != 0)
+        { 
+            lastVerticalVector = movementVector.y; 
+        }
+
         animate.horizontal = movementVector.x; //do sprawdzania horizontal movementu do animacji
         movementVector *= speed; //mozna zmieniac w editorze predkosc poruszania sie
 
