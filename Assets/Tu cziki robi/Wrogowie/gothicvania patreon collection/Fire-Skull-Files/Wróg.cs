@@ -6,10 +6,12 @@ public class Wróg : MonoBehaviour
 {
     [SerializeField] Transform targetDestination;
     GameObject targetGameObject;
+    Gracz targetCharacter;
     [SerializeField] float speed;
 
     Rigidbody2D rgdbd2d;
     [SerializeField] int hp = 30;
+    [SerializeField] int damage = 1;
 
     private void Awake()
     {
@@ -33,7 +35,12 @@ public class Wróg : MonoBehaviour
 
     private void Attack()
     {
-       // Debug.Log("Atakuje postaæ");
+       if(targetCharacter == null)
+        {
+            targetCharacter = targetGameObject.GetComponent<Gracz>();
+        }
+
+       targetCharacter.TakeDamage(damage);
     }
 
     public void TakeDamage(int damage)

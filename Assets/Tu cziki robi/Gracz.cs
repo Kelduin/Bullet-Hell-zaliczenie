@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Gracz : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int maxHP = 1000;
+    public int currentHP = 1000;
+    [SerializeField] StatusBar hpBar;
 
-    // Update is called once per frame
-    void Update()
+
+    public void TakeDamage(int damage)
     {
-        
+        currentHP -= damage;
+        if (currentHP <= 0)
+        {
+            Debug.Log("ludzik umar³ gg");
+        }
+        hpBar.SetState(currentHP, maxHP);
     }
 }
