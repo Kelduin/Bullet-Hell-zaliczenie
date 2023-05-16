@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class Wróg : MonoBehaviour
 {
-    [SerializeField] Transform targetDestination;
+    Transform targetDestination;
     GameObject targetGameObject;
     Gracz targetCharacter;
     [SerializeField] float speed;
 
     Rigidbody2D rgdbd2d;
     [SerializeField] int hp = 30;
-    [SerializeField] int damage = 1;
+    [SerializeField] int damage = 10;
 
     private void Awake()
     {
         rgdbd2d = GetComponent<Rigidbody2D>();
-        targetGameObject = targetDestination.gameObject;
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        targetGameObject = target;
+        targetDestination = target.transform;
     }
 
     private void FixedUpdate()
