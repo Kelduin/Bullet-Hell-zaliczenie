@@ -18,4 +18,16 @@ public class Gracz : MonoBehaviour
         }
         hpBar.SetState(currentHP, maxHP);
     }
+
+    public void Heal(int amount)
+    {
+        if (currentHP <= 0) { return; }
+
+        currentHP += amount;
+        if (currentHP > maxHP)
+        {
+            currentHP = maxHP;
+        }
+    }
+
 }
