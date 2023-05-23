@@ -12,6 +12,7 @@ public class Wróg : MonoBehaviour
     Rigidbody2D rgdbd2d;
     [SerializeField] int hp = 30;
     [SerializeField] int damage = 10;
+    [SerializeField] int experience_reward = 400;
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class Wróg : MonoBehaviour
 
         if (hp < 1)
         {
+            targetGameObject.GetComponent<Level>().AddExperience(experience_reward);
             Destroy(gameObject);
         }
 
