@@ -8,7 +8,7 @@ public class ProjectileWeaponProjectile : MonoBehaviour
 
     Vector3 direction;
     [SerializeField] float speed;
-    [SerializeField] int damage = 5;
+    [SerializeField] public int damage = 5;
     [SerializeField] float lifeTime;
 
 
@@ -55,4 +55,5 @@ public class ProjectileWeaponProjectile : MonoBehaviour
 
         
     }
+    
 }
