@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WhipWeapon : MonoBehaviour
 {
-    [SerializeField] float timeToAttack = 4f;
+    [SerializeField] public float timeToAttack = 4f;
     float timer;
 
     [SerializeField] GameObject leftWhipObject;
@@ -14,7 +14,7 @@ public class WhipWeapon : MonoBehaviour
     MovementGracza MovementGracza;
 
     [SerializeField] Vector2 whipAttackSize = new Vector2(4f, 2f);
-    [SerializeField] int whipDamage = 10;
+    [SerializeField] public int whipDamage = 10;
     
 
     private void Awake()
