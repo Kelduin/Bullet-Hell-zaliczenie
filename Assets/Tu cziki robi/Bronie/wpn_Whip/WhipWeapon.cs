@@ -62,4 +62,10 @@ public class WhipWeapon : MonoBehaviour
             
         }
     }
+
+    public void Upgrade()
+    {
+        whipDamage += 5;
+        GetComponent<WhipWeapon>().timeToAttack -= timeToAttack * 0.1f;
+    }
 }

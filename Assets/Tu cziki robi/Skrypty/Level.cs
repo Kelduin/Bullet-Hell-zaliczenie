@@ -7,6 +7,9 @@ public class Level : MonoBehaviour
     public int level = 1;
     int experience = 0;
     [SerializeField] ExperienceBar experienceBar;
+    [SerializeField] GameObject projectileWeapon;
+    [SerializeField] GameObject whipWeapon;
+    [SerializeField] GameObject enemySpawner;
 
     int TO_LEVEL_UP
     {
@@ -37,6 +40,15 @@ public class Level : MonoBehaviour
             experience -= TO_LEVEL_UP;
             level += 1;
             experienceBar.SetLevelText(level);
+            whipWeapon.GetComponent<WhipWeapon>().Upgrade();
+            enemySpawner.GetComponent<EnemiesMenager>().Upgrade();
+            projectileWeapon.GetComponent<ProjectileWeapon>().Upgrade();
+
+            if (level >= 2)
+            {
+                projectileWeapon.SetActive(true);
+                
+            }
         }
     }
 }

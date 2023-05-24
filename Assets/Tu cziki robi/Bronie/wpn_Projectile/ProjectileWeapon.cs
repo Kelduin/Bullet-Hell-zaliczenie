@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ProjectileWeapon : MonoBehaviour
 {
-    [SerializeField] float timeToAttack;
+    [SerializeField] public float timeToAttack;
+    [SerializeField] public int damage1 = 5;
     float timer;
 
     MovementGracza playerMove;
@@ -41,6 +42,12 @@ public class ProjectileWeapon : MonoBehaviour
         spawnedProjectile.transform.position = transform.position;
         if(lastHorizontalVector == 0) spawnedProjectile.GetComponent<ProjectileWeaponProjectile>().SetDirection(defaultHorizontalVector, 0f);
         else spawnedProjectile.GetComponent<ProjectileWeaponProjectile>().SetDirection(playerMove.lastHorizontalVector, 0f);
+        spawnedProjectile.GetComponent<ProjectileWeaponProjectile>().damage = damage1;
 
+    }
+    public void Upgrade()
+    {
+        damage1 += 5;
+        timeToAttack -= timeToAttack * 0.1f;
     }
 }

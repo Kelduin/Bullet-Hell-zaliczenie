@@ -56,4 +56,8 @@ public class EnemiesMenager : MonoBehaviour
 
         return position;
     }
+    public void Upgrade()
+    {
+        spawnTimer *= 0.7f;
+    }
 }
