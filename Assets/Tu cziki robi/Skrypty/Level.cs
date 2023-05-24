@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    int level = 1;
+    public int level = 1;
     int experience = 0;
     [SerializeField] ExperienceBar experienceBar;
 

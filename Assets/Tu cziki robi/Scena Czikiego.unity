@@ -632,7 +632,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137344988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.48, y: 0.27, z: 0}
+  m_LocalPosition: {x: 1.68, y: 0.04, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1269,6 +1269,7 @@ GameObject:
   - component: {fileID: 280027869}
   - component: {fileID: 280027870}
   - component: {fileID: 280027871}
+  - component: {fileID: 280027872}
   m_Layer: 0
   m_Name: Gracz
   m_TagString: Untagged
@@ -1398,7 +1399,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c0c9d776e9f2c44a4a06c2f09a0de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
   experienceBar: {fileID: 1948039114}
+--- !u!114 &280027872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280027864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cef9d00465958147b22bbf9c94cf299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileWeapon: {fileID: 2113218052}
 --- !u!1 &288890550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3855,7 +3870,7 @@ MonoBehaviour:
   timeToAttack: 1.5
   leftWhipObject: {fileID: 1405259365}
   rightWhipObject: {fileID: 137344988}
-  whipAttackSize: {x: 4, y: 2}
+  whipAttackSize: {x: 3, y: 2}
   whipDamage: 10
 --- !u!4 &941553189 stripped
 Transform:
@@ -5244,10 +5259,10 @@ RectTransform:
   m_Father: {fileID: 525627488}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 433.84, y: 197.03}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 341, y: -61.97}
+  m_SizeDelta: {x: -762, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401618021
 MonoBehaviour:
@@ -5372,7 +5387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405259365}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.63, y: 0.03, z: 0}
+  m_LocalPosition: {x: -1.71, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8730,7 +8745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2113218053
 Transform:
   m_ObjectHideFlags: 0
@@ -8760,6 +8775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToAttack: 1
   projectilePrefab: {fileID: 2052974725470554326, guid: 2da739918d5e509429909393fe427b28, type: 3}
+  defaultHorizontalVector: -1
 --- !u!4 &2114762415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8465319847861422239, guid: 51c62588e0f0c244299940603220ce4a, type: 3}
