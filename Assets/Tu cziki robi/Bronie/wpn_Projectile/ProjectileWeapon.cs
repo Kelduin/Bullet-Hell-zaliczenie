@@ -12,6 +12,9 @@ public class ProjectileWeapon : MonoBehaviour
 
     [SerializeField] GameObject projectilePrefab;
 
+    [SerializeField] float defaultHorizontalVector = -1f;
+    private float lastHorizontalVector;
+
     private void Awake()
     {
         playerMove = GetComponentInParent<MovementGracza>();
@@ -21,6 +24,7 @@ public class ProjectileWeapon : MonoBehaviour
 
     private void Update()
     {
+        lastHorizontalVector = playerMove.lastHorizontalVector;
         if (timer < timeToAttack)
         {
             timer += Time.deltaTime;
@@ -35,7 +39,8 @@ public class ProjectileWeapon : MonoBehaviour
     {
         GameObject spawnedProjectile = Instantiate(projectilePrefab);
         spawnedProjectile.transform.position = transform.position;
-        spawnedProjectile.GetComponent<ProjectileWeaponProjectile>().SetDirection(playerMove.lastHorizontalVector, 0f);
+        if(lastHorizontalVector == 0) spawnedProjectile.GetComponent<ProjectileWeaponProjectile>().SetDirection(defaultHorizontalVector, 0f);
+        else spawnedProjectile.GetComponent<ProjectileWeaponProjectile>().SetDirection(playerMove.lastHorizontalVector, 0f);
 
     }
 }
