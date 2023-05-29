@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wróg : MonoBehaviour
+public class Wróg : MonoBehaviour, DemagableObjects
 {
     Transform targetDestination;
     GameObject targetGameObject;

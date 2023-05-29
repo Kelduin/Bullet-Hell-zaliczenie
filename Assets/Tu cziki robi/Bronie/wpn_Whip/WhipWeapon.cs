@@ -54,10 +54,10 @@ public class WhipWeapon : MonoBehaviour
     {
         for(int i = 0; i < colliders.Length; i++)
         {
-            Wróg e = colliders[i].GetComponent<Wróg>();
+            DemagableObjects e = colliders[i].GetComponent<DemagableObjects>();
             if (e != null)
             {
-                colliders[i].GetComponent<Wróg>().TakeDamage(whipDamage);
+                e.TakeDamage(whipDamage);
             }
             
         }
@@ -65,7 +65,7 @@ public class WhipWeapon : MonoBehaviour
 
     public void Upgrade()
     {
-        whipDamage += 5;
-        GetComponent<WhipWeapon>().timeToAttack -= timeToAttack * 0.1f;
+        whipDamage += 2;
+        GetComponent<WhipWeapon>().timeToAttack -= timeToAttack * 0.05f;
     }
 }
