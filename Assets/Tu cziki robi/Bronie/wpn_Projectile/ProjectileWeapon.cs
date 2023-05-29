@@ -47,7 +47,7 @@ public class ProjectileWeapon : MonoBehaviour
     }
     public void Upgrade()
     {
-        damage1 += 5;
-        timeToAttack -= timeToAttack * 0.1f;
+        damage1 += 2;
+        timeToAttack -= timeToAttack * 0.05f;
     }
 }

@@ -8,6 +8,20 @@ public class Gracz : MonoBehaviour
     public int currentHP = 1000;
     [SerializeField] StatusBar hpBar;
 
+    [SerializeField] public Level level;
+
+
+    private void Awake()
+    {
+        level = GetComponent<Level>();
+    }
+
+
+    private void Start()
+    {
+        hpBar.SetState(currentHP, maxHP);
+    }
+
 
     public void TakeDamage(int damage)
     {
@@ -28,6 +42,7 @@ public class Gracz : MonoBehaviour
         {
             currentHP = maxHP;
         }
+        hpBar.SetState(currentHP, maxHP);
     }
 
 }
