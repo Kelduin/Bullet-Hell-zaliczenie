@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6709647091413290976}
   - component: {fileID: 6709647091413291007}
+  - component: {fileID: -2140430514529799354}
   m_Layer: 0
   m_Name: dziura
   m_TagString: Untagged
@@ -84,3 +85,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &-2140430514529799354
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709647091413291006}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8, y: 8}
+    newSize: {x: 8, y: 8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.98851204, y: 3.8614864}
+      - {x: -1.3195939, y: 3.778378}
+      - {x: -1.6504562, y: 3.0794525}
+      - {x: -2.0346165, y: 2.1210442}
+      - {x: -2.667567, y: 1.8898652}
+      - {x: -3.722973, y: 1.25}
+      - {x: -3.861486, y: -0.98648596}
+      - {x: -3.097973, y: -1.5979731}
+      - {x: -2.2961795, y: -2.1063209}
+      - {x: -1.7506762, y: -3.1952689}
+      - {x: -1.416892, y: -3.722972}
+      - {x: -0.2094233, y: -3.849721}
+      - {x: 1.125675, y: -3.69527}
+      - {x: 1.660769, y: -3.0935585}
+      - {x: 2.2293715, y: -2.285931}
+      - {x: 3.6398644, y: -1.0837841}
+      - {x: 3.9614916, y: -0.07528424}
+      - {x: 3.9249895, y: 0.45027733}
+      - {x: 3.5844588, y: 1.278378}
+      - {x: 2.2013319, y: 2.1106079}
+      - {x: 1.3770261, y: 3.5425677}
