@@ -9,14 +9,12 @@ public class Wróg : MonoBehaviour, DemagableObjects
     Gracz targetCharacter;
     [SerializeField] float speed;
 
-    Rigidbody2D rgdbd2d;
     [SerializeField] int hp = 30;
     [SerializeField] int damage = 10;
     [SerializeField] int experience_reward = 400;
 
     private void Awake()
     {
-        rgdbd2d = GetComponent<Rigidbody2D>();
     }
 
     public void SetTarget(GameObject target)
@@ -28,12 +26,12 @@ public class Wróg : MonoBehaviour, DemagableObjects
     private void FixedUpdate()
     {
         Vector3 direction = (targetDestination.position - transform.position).normalized;
-        rgdbd2d.velocity = direction * speed;
+        transform.Translate(direction * speed * Time.fixedDeltaTime);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == targetGameObject)
+        if (collision.gameObject == targetGameObject)
         {
             Attack();
         }
@@ -41,12 +39,12 @@ public class Wróg : MonoBehaviour, DemagableObjects
 
     private void Attack()
     {
-       if(targetCharacter == null)
+        if (targetCharacter == null)
         {
             targetCharacter = targetGameObject.GetComponent<Gracz>();
         }
 
-       targetCharacter.TakeDamage(damage);
+        targetCharacter.TakeDamage(damage);
     }
 
     public void TakeDamage(int damage)
@@ -58,6 +56,5 @@ public class Wróg : MonoBehaviour, DemagableObjects
             targetGameObject.GetComponent<Level>().AddExperience(experience_reward);
             Destroy(gameObject);
         }
-
     }
 }
