@@ -16,12 +16,12 @@ public class ProjectileWeapon : MonoBehaviour
     [SerializeField] float defaultHorizontalVector = -1f;
     private float lastHorizontalVector;
 
+    [SerializeField] AudioSource spawnSound; 
+
     private void Awake()
     {
         playerMove = GetComponentInParent<MovementGracza>();
     }
-
-
 
     private void Update()
     {
@@ -40,11 +40,21 @@ public class ProjectileWeapon : MonoBehaviour
     {
         GameObject spawnedProjectile = Instantiate(projectilePrefab);
         spawnedProjectile.transform.position = transform.position;
-        if(lastHorizontalVector == 0) spawnedProjectile.GetComponent<ProjectileWeaponProjectile>().SetDirection(defaultHorizontalVector, 0f);
+        if (lastHorizontalVector == 0) spawnedProjectile.GetComponent<ProjectileWeaponProjectile>().SetDirection(defaultHorizontalVector, 0f);
         else spawnedProjectile.GetComponent<ProjectileWeaponProjectile>().SetDirection(playerMove.lastHorizontalVector, 0f);
         spawnedProjectile.GetComponent<ProjectileWeaponProjectile>().damage = damage1;
 
+        PlaySpawnSound(); 
     }
+
+    private void PlaySpawnSound()
+    {
+        if (spawnSound != null)
+        {
+            spawnSound.Play();
+        }
+    }
+
     public void Upgrade()
     {
         damage1 += 2;

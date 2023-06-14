@@ -8,7 +8,7 @@ public class Wróg : MonoBehaviour, DemagableObjects
     GameObject targetGameObject;
     Gracz targetCharacter;
     [SerializeField] float speed;
-
+    [SerializeField] AudioClip deathSound;
     [SerializeField] int hp = 30;
     [SerializeField] int damage = 10;
     [SerializeField] int experience_reward = 400;
@@ -88,7 +88,13 @@ public class Wróg : MonoBehaviour, DemagableObjects
         if (hp < 1)
         {
             targetGameObject.GetComponent<Level>().AddExperience(experience_reward);
+
+            if (deathSound != null)
+            {
+                EnemyDeathSound.Instance.PlayDeathSound(deathSound);
+            }
             Destroy(gameObject);
         }
     }
+
 }

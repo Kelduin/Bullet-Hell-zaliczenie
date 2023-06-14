@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Gracz : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Gracz : MonoBehaviour
     [SerializeField] public Level level;
 
     private Rigidbody2D rb;
-    [SerializeField] private float speed = 5f; // Adjust the speed factor as needed
+    [SerializeField] private float speed = 5f; 
 
     private void Awake()
     {
@@ -37,7 +38,7 @@ public class Gracz : MonoBehaviour
 
         if (currentHP <= 0)
         {
-            Debug.Log("Player died. Game over!");
+            SceneManager.LoadScene("Death");
         }
         hpBar.SetState(currentHP, maxHP);
     }
@@ -68,7 +69,7 @@ public class Gracz : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        rb.velocity = movement * speed; // Apply speed factor to the movement vector
+        rb.velocity = movement * speed; 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
