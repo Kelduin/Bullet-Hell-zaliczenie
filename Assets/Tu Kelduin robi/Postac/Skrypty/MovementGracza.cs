@@ -22,7 +22,13 @@ public class MovementGracza : MonoBehaviour
         movementVector = new Vector3();
         animate = GetComponent<Animacja>();
     }
-    
+
+    private void Start()
+    {
+        lastHorizontalVector = -1f;
+        lastVerticalVector = 1f;
+    }
+
     void Update()
     {
         movementVector.x = Input.GetAxisRaw("Horizontal"); //chodzi gora dol
