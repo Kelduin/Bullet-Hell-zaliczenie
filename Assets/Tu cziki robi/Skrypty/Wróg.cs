@@ -13,6 +13,8 @@ public class Wróg : MonoBehaviour, DemagableObjects
     [SerializeField] int damage = 10;
     [SerializeField] int experience_reward = 400;
 
+    private bool isAttacking = false;
+
     private void Awake()
     {
     }
@@ -31,20 +33,50 @@ public class Wróg : MonoBehaviour, DemagableObjects
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == targetGameObject)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Attack();
+            StartAttacking();
         }
     }
 
-    private void Attack()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (targetCharacter == null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            targetCharacter = targetGameObject.GetComponent<Gracz>();
+            StopAttacking();
         }
+    }
 
-        targetCharacter.TakeDamage(damage);
+    private void StartAttacking()
+    {
+        if (!isAttacking)
+        {
+            isAttacking = true;
+            StartCoroutine(AttackRoutine());
+        }
+    }
+
+    private void StopAttacking()
+    {
+        if (isAttacking)
+        {
+            isAttacking = false;
+            StopCoroutine(AttackRoutine());
+        }
+    }
+
+    private IEnumerator AttackRoutine()
+    {
+        while (isAttacking)
+        {
+            if (targetCharacter == null)
+            {
+                targetCharacter = targetGameObject.GetComponent<Gracz>();
+            }
+
+            targetCharacter.TakeDamage(damage);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     public void TakeDamage(int damage)
