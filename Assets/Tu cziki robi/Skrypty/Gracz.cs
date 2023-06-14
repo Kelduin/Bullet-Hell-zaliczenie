@@ -30,6 +30,7 @@ public class Gracz : MonoBehaviour
     public void TakeDamage(int damage)
     {
         ApplyArmor(ref damage);
+       
 
 
         currentHP -= damage;
