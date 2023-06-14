@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wróg : MonoBehaviour, DemagableObjects
+public class WrÃ³g : MonoBehaviour, DemagableObjects
 {
     Transform targetDestination;
     GameObject targetGameObject;
@@ -31,7 +31,9 @@ public class Wróg : MonoBehaviour, DemagableObjects
         transform.Translate(direction * speed * Time.fixedDeltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
+
     {
         if (collision.gameObject.CompareTag("Player"))
         {
