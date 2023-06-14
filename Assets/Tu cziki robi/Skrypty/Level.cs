@@ -11,6 +11,8 @@ public class Level : MonoBehaviour
     [SerializeField] GameObject whipWeapon;
     [SerializeField] GameObject enemySpawner;
 
+    [SerializeField] AudioSource levelUpSound; 
+
     int TO_LEVEL_UP
     {
         get
@@ -35,7 +37,7 @@ public class Level : MonoBehaviour
 
     public void CheckLevelUp()
     {
-        if(experience >= TO_LEVEL_UP)
+        if (experience >= TO_LEVEL_UP)
         {
             experience -= TO_LEVEL_UP;
             level += 1;
@@ -47,8 +49,17 @@ public class Level : MonoBehaviour
             if (level >= 2)
             {
                 projectileWeapon.SetActive(true);
-                
             }
+
+            PlayLevelUpSound();
+        }
+    }
+
+    private void PlayLevelUpSound()
+    {
+        if (levelUpSound != null)
+        {
+            levelUpSound.Play();
         }
     }
 }
