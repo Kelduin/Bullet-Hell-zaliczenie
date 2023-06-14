@@ -31,9 +31,8 @@ public class Wróg : MonoBehaviour, DemagableObjects
         rgdbd2d.velocity = direction * speed;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        
         if(collision.gameObject == targetGameObject)
         {
             Attack();
@@ -61,6 +60,4 @@ public class Wróg : MonoBehaviour, DemagableObjects
         }
 
     }
-    
-   
 }
