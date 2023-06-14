@@ -23,24 +23,18 @@ public class MovementGracza : MonoBehaviour
         animate = GetComponent<Animacja>();
     }
 
-    private void Start()
-    {
-        lastHorizontalVector = -1f;
-        lastVerticalVector = 1f;
-    }
-
     void Update()
     {
         movementVector.x = Input.GetAxisRaw("Horizontal"); //chodzi gora dol
         movementVector.y = Input.GetAxisRaw("Vertical"); //chodzi lewo prawo
 
-        if(movementVector.x != 0)
+        if (movementVector.x != 0)
         {
             lastHorizontalVector = movementVector.x;
         }
-        if(movementVector.y != 0)
-        { 
-            lastVerticalVector = movementVector.y; 
+        if (movementVector.y != 0)
+        {
+            lastVerticalVector = movementVector.y;
         }
 
         animate.horizontal = movementVector.x; //do sprawdzania horizontal movementu do animacji
