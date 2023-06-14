@@ -58,6 +58,6 @@ public class EnemiesMenager : MonoBehaviour
     }
     public void Upgrade()
     {
-        spawnTimer *= 0.8f;
+        spawnTimer *= 0.9f;
     }
 }
