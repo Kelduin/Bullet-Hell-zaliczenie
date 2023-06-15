@@ -12,13 +12,11 @@ public class Wróg : MonoBehaviour, DemagableObjects
     [SerializeField] int hp = 30;
     [SerializeField] int damage = 10;
     [SerializeField] int experience_reward = 400;
-    private EnemyKnockback enemyKnockback;
 
     private bool isAttacking = false;
 
-    private void Start()
+    private void Awake()
     {
-        enemyKnockback = GetComponent<EnemyKnockback>();
     }
 
     public void SetTarget(GameObject target)
@@ -86,9 +84,6 @@ public class Wróg : MonoBehaviour, DemagableObjects
     public void TakeDamage(int damage)
     {
         hp -= damage;
-
-        Vector2 knockbackDirection = (transform.position - targetDestination.position).normalized;
-        enemyKnockback.ApplyKnockback(knockbackDirection);
 
         if (hp < 1)
         {
