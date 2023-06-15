@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3795306698855910430}
   - component: {fileID: 3795306698855910499}
   - component: {fileID: 9167981542765939106}
+  - component: {fileID: 8266575102712091624}
   m_Layer: 0
   m_Name: Czacha
   m_TagString: Untagged
@@ -143,7 +144,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3795306698855910425}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -169,10 +170,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  deathSound: {fileID: 8300000, guid: 5c06343d94cb7554f88a858fc04d0543, type: 3}
   hp: 30
   damage: 10
   experience_reward: 0
-  deathSound: {fileID: 8300000, guid: 5c06343d94cb7554f88a858fc04d0543, type: 3}
 --- !u!114 &9167981542765939106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +188,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DropItemPrefab: {fileID: 2615393345375958158, guid: 7dbf9974520d0974280bdfed5efaff4f, type: 3}
   chance: 0.6
+--- !u!114 &8266575102712091624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3795306698855910425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65dea2420ee99cc479f57ff9f42e01de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 3
+  knockbackDuration: 0.2
